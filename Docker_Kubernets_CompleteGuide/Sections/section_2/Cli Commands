@@ -1,0 +1,54 @@
+Cli Docker Commands
+
+
+# Pull the image and run the container.
+$ docker run hello-world
+
+# Busybox list all file system inside the container because ls is already installed
+$ docker run busybox ls
+
+# List all running containers
+$ docker ps
+
+# List all running containers we already created
+$ docker ps --all
+
+# To create the container
+$ docker create <image name>
+
+# To start the container ( -a means give me any output from the container)
+$ docker start -a <container id>
+
+# Delete all containers ran before and consequently free up space
+$ docker system prune 
+
+
+# Scenario. When you start a container without "-a" any output will be seen. Rather than, run again cli docker
+# we use the bellow command to see the logs from the container.
+# When we run the below command we don't start the container again. We just got the logs already immeted when it was running.
+$ docker log <container id>
+
+
+# Docker stop like grace shut down. Give time to close resources internally. (SIGTERM MSG)
+$ docker stop <container id>
+
+# Docker kill like shut down righ now. Don't give any time to close/save anything. (SIGKILL)
+$ docker kill <container id>
+
+
+# Execute an additional command in a container
+# The container is already executing and you want to execute another one.
+# -i -> means that everything I type be sent to STDIN (destiny applicaton)
+# -t -> means that show in a nicely format in your screen
+$ docker exec -it <container id> <command>
+
+# Execute bash, powershell, zsh, sh
+# It's something that allows us to type commands in and have them be executed inside that container.
+$ docker exec -it <container id> sh
+$ docker run -it <image name> sh
+
+
+
+
+
+

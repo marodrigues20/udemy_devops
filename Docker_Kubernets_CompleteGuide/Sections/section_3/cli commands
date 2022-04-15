@@ -1,0 +1,17 @@
+# Build a image
+$ docker build .
+
+# Tagging one image
+$ docker build -t marodrigues20/redis:latest .
+
+Note: marodrigues20 -> my docker id
+      redis  -> Repo/Project Name
+      latest -> Version
+      .      -> Specify the directory of files/folders to use for the build
+
+
+  
+
+# How to create one image from one container that is running
+$ docker commit -c 'CMD ["linux command"]' <container id>
+
