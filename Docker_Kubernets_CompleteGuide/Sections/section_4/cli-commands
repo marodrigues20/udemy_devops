@@ -1,0 +1,11 @@
+# By default docker containers cannot receive requests from my local network. However, it can reach outside world.
+# One example of this, is when we are building a docker image when we have to install something where de command is 
+# declared inside the Dockerfile.
+# To enable incoming trafic to our docker container we have to specify when we gonna run our container.
+# Docker Run with Port Mapping
+
+$ docker run -p 8080:8080 <image id / image name>
+
+# First 8080  -> Route incoming requests to this port on local host to 
+# Second 8080 -> this port inside the container 
+
