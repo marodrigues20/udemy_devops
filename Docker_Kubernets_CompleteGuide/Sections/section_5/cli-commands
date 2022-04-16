@@ -1,0 +1,18 @@
+# To execute $ docker run <myimage> in docker compose we use the command below:
+$ docker-compose up
+
+
+# To execute $ docker build . and docker run <my image> we use the command below:
+$ docker-compose up --build 
+
+
+# Launch in Background
+$ docker-compose up -d
+
+# Stop Containers
+$ docker-compose down 
+
+
+# This command will list all containers that are up and listed in docker-compose.yml. It needs to be in the same
+# directory where the docker-compose.yml is. Otherwise, this command will fail.
+$ docker-compose ps
