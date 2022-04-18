@@ -1,0 +1,34 @@
+# How to build a image customazing the Dockerfile file.
+$ docker build -f Dockerfile.dev .
+
+
+# Set up docker volume.
+$ docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image_id>
+
+# -v /app/node_modules -> Put a bookmark on the node_modules folder
+# -v $(pwd):/app -> Map the pwd into the '/app' folder
+# When we don't use the ":" we use a placeholder inside the container. Don't try map anything
+
+# This command overwrite the CMD ["npm", "run", "start"] in Dockerfile.dev. The problem is that we can't interact with
+# the out put. We just have the output not the input.
+$ docker run 43eb105c41 npm run test
+
+# This command overwrite the CMD ["npm", "run", "start"] in Dockerfile.dev. 
+# Here we have the Output and Input to interact with the container.
+$ docker run -it 43eb105c41 npm run test
+
+
+# We use --build because we included one more services in our docker-compose file. Then we add
+# --build to build the service before running our containers.
+$ docker-compose up --build
+
+
+# docker attach our terminal to stdin, stdout and stderr docker container.
+# However, it will be attach always in the first process.
+# For this reason we can't interact with the teminal.
+$ docker attach <image id>
+
+
+# Command below will exec a new command where we gonna attach stdin and run a new command in this case the bash shell
+$
+
