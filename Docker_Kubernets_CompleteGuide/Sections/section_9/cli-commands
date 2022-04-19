@@ -1,0 +1,22 @@
+# Commands used in this section
+
+$ docker build -f Dockerfile .
+$ docker run <image id>
+$ docker-compose down && docker-compose up --build
+
+# How to select multiple words in visual code 
+# select the words before the set of key word that you want to copy together
+# Press the command button many times to select the same block multiple times.
+# Press the arrow right to put the cursor the correct point
+# Press Option + shift + right arrow to select all key words that you want to copy in the text
+# Command + C
+# Command + V
+
+
+# Command docker-compose with flag build serve for rebuilding all images.
+$ docker-compose up --build
+
+
+
+
+
