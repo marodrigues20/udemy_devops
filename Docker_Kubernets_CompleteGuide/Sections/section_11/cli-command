@@ -1,0 +1,15 @@
+# Section 11: Multi-Containers Deployments to AWS
+
+## This section we will learn how to deploy multi-containers into EBS (Elastic Beastalk) to run multi-containers in AWS.
+
+Note: Docker running on 64bit Amazon Linux and Multi-container Docker running on 64bit Amazon Linux will be discontinuated until July 2022.
+This approach use dockerrun.aws.json
+
+
+## This Section will be using Docker running on 64bit Amazon Linux 2 (Docker Running on 64bit Amazon Linux 2.)
+Note: This approach use docker-compose.yml in the root of the project.
+
+# To specify which docker file use to build our image we have to use flag -f when we are not using the default one like Dockerfile
+$ docker-compose -f docker-compose-dev.yml up
+$ docker-compose -f docker-compose-dev.yml up --build
+$ docker-compose -f docker-compose-dev.yml down
