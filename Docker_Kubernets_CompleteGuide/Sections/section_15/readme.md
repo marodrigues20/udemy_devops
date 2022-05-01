@@ -27,7 +27,7 @@ Kubectl creates something called ingress controller. As a controller, it is goin
 some infrastructure that's going to make our desired state a reality.
 
 ## Kubernetes-ingress
-We are not using kubernetes-ingress, a project led by the company nginx. github.com/nginxinc/kubernetes-ingress
+We are NOT using kubernetes-ingress, a project led by the company nginx. github.com/nginxinc/kubernetes-ingress
 It doesn't work in the same way of Ingress-ngixn. It is a totally separate project.
 
 ## Ingress-nginx
