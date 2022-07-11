@@ -78,7 +78,7 @@ released at any time.
         - marodrigues20@gmail.com
 
     9) Instance Configuration:
-        - http://46.101.41.106:8080/
+        -   
 
 
 ## 9. Introduction to Docker
