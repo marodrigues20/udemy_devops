@@ -80,6 +80,12 @@ Object: Build NodeJs project, package it in Docker and publish it to docker hub.
 
 How to Create a Pipeline.
 
+Plugins: CloudBees Docker Build and Publish plugin
+         Docker API Plugin
+         Docker Commons Plugin
+         Docker Pipeline
+         Docker plugin
+
 Main Scenario:
 
     1) Open the Jenkins http://46.101.41.106:8080
@@ -125,6 +131,28 @@ Main Scenario:
   - This also works for multiple builds at the same time (think multiple git branches), every build has its own database container.
 
 ## 23. Demo: Build, test, and run everything in Docker containers.
+
+
+Main Scenario:
+
+  1) Open the Jenkins http://46.101.41.106:8080
+  2) Click on "New Item" menu item.
+  3) Click on "New Item" on menu.
+  4) Fill in "Enter an item name" field with "test in docker".
+  5) Select "Pipeline"
+  6) Click on the button "OK"
+  7) Go to "Pipeline" section
+  8) Select "Pipeline script" in the dropbox "Definition"
+  9) Select "Git" in SCM dropbox
+  10) Fill in "Repository URL" with "https://github.com/marodrigues20/docker-demo.git"
+  11) Fill in "Script Path" with "misc/Jenkinsfile.v2"
+  12) Click on the "Save" button.
+  13) Jenkins open a new wepage.
+  14) Click on "Build Now" link.
+  15) Open the Jenkins Job Id.
+  16) Open the Console Output.
+  17) Jenkins print out the msg: SUCCESS.
+  18) End.
 
 
 
