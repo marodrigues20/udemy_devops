@@ -69,3 +69,41 @@ A-01 - Plugin Not Installed
     4) Jenkins shows "Email Extension"
     5) Check it
     6) Click on "Install and Restart" button.
+
+
+## 25. Slack Integration
+
+- Slack is a chat and collaboration tool, comparable with Atlassian's HipChat
+- It's a new and popular team communication tool, that is much better than using Skype or older enterprise chat tools for collaboration
+- Slack (or hipchat) is better than its competitors, because it allows you to integrate all your tools within slack, to avoid switching between apps.
+    - It can give you a realtime "war room" to collaborate on problems
+    - This is also called "ChatOps"
+    - If you're familiar with IRC (Internet Relay Chat), It's possible that you already do this since the nineties.
+
+- ChatOps is a collaborative mode that connects people, tools, process, and automation in a transparant workflow.
+- It allows you to do conversation driven collaboration, while having your tools integrated and keeping you up to date of the state of your systems.
+
+- For example:
+    - You're in a team chat with 5 people, when the following happens:
+        - 10:05 AM: You receive a message in the chat that a backend service is malfunctioning.
+        - 10:05 AM: OpsGenie (a paper tool) puts a message on the chat that Bob has been paged.
+        - 10:10 AM: OpsGenie sends a message that Chris has been pages, because Bob hasn't been responding.
+        - 10:11 AM: OpsGenie puts another message on the chat that Chris has acknowledged the problem.
+        - 10:15 AM: You tell Chris on the chat that the backend service has been misbehaving since yesterday and that it might be because
+          of a new experimental feature that has been pushed late last nigh.
+        - 10:15 AM: Chris acknowledges and says he'll look for the cause.
+        - 10:45 AM: Chris finds a solution for the problem and commits his changes
+        - 10:45 AM: Bitbucket puts a message in the room that a code change has been commited and pushed to the git repository.
+        - 10:55 AM: Jenkins notifies the channel that a new build has been pushed to the staging server.
+        - 10:56 AM: Jenkins notifies the channel that the staging version was promoted to production.
+        - 11:00 AM: The monitoring system puts a message on the channel that all system are green again.
+        - 11:30 AM: Bob comes back from a meeting and sees the history of the chat, the actions that have been taken, the commit that been done and
+          that all systems are OK again.
+        - 12:00 PM: The rest of the enginners see the same history, everyone is up-to-date with what happened that morning.
+
+
+- This is an example of how ChatOps could work, relieving the team of a lot of inefficient emails that would've been send around.
+- If you want to use ChatOps, your tasks now is to integrate Jenkins with your collaboration tool, in a way that you can see the relevant messages in your channel.
+- I'll show you how to do this with Slack
+
+
