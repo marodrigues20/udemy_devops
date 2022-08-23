@@ -15,6 +15,7 @@
         - You can use Github Plugin and Bitbucket to configure the push notification
 
 
+## 25. Email Demo
 
 Pre-Requirement: Register mailtrap.io 
 
@@ -71,7 +72,7 @@ A-01 - Plugin Not Installed
     6) Click on "Install and Restart" button.
 
 
-## 25. Slack Integration
+## 26. Slack Integration
 
 - Slack is a chat and collaboration tool, comparable with Atlassian's HipChat
 - It's a new and popular team communication tool, that is much better than using Skype or older enterprise chat tools for collaboration
@@ -105,5 +106,67 @@ A-01 - Plugin Not Installed
 - This is an example of how ChatOps could work, relieving the team of a lot of inefficient emails that would've been send around.
 - If you want to use ChatOps, your tasks now is to integrate Jenkins with your collaboration tool, in a way that you can see the relevant messages in your channel.
 - I'll show you how to do this with Slack
+
+
+## 27. Demo: Slack Integration
+
+Pre-Requisites:
+    1) You have to have a slack account
+    2) You have to have a slack Team
+
+Jenkins Main Scenario:
+    1) Open Jenkins Dashboard (http://46.101.41.106:8080)
+    2) Click on Manage Jenkins
+    3) Click on Manage Plugins
+    4) Click on Tab Available
+    5) Select on Filter field
+    6) Type "Slack"
+    7) Select "Slack Notification Plugin"
+    8) Click on "Download and Install after restart"
+    9) Jenkins shows a new page.
+    10) Select "Restart Jenkins when installation is complete and no jobs are running"
+    11) Jenkins redirect to another page. Msg = Please wait while Jenkins is restarting.
+    12) Please wait while Jenkins is restarting
+    13) End.
+
+Slack Main Scenario:
+
+    1) Open Slack
+    2) Click on "Browser Slack" menu.
+    3) Click on "Apps"
+    4) Slack open Apps page
+    5) Search for "Jenkins"
+    6) Click on "Add" button in Jenkins App.
+    7) Slack open on the web browser "Slack App Directory"
+    8) Click on "Add to Slack"
+    9) Back to Slack open Apps page
+    10) Search for "Incoming WebHooks"
+    11) Click "Add" Button
+    12) Slack open on the web browser "Slack App Directory"
+    13) Click on "Add to Slack"
+    14) Select in Post to Channel the channel you'd like to receive a message.
+    15) Click on "Add Incoming WebHooks integration"
+    16) Slack shows "Slack app directory" for Incomming WebHooks.
+
+Jenkins Main Scenario 2:
+    
+    1) Open Jenkins Dashboard (http://46.101.41.106:8080)
+    2) Click on "Manage Jenkins" menu item.
+    3) Jenkins shows "Manage Jenkins" web page
+    4) Select "Configure System"
+    5) Jenkins open a new page where contains forms
+    6) Search for "Slack" Form.
+    7) Click "Add Credentials"
+    8) Jenkins open a pop up form
+    9) Select in "Kind" drop box the value "Secret text"
+    10) Fill in "ID, Description" using any value.
+    11) Copy from (Slack Main Scenario) on step 16 the secret. Like this:
+        "T03UNQSEL9Y/B03ULH5B4LV/NSUug6yhfkAxdnXXGXJ8OSGq" in Webhook URL field.
+    12) In step 10 add as a secrete the value retrieved from previous step.
+    13) Copy the base Url in Workspace field. Like this: https://hooks.slack.com/services/ from step 16.
+    14) Create a new pipeline
+    15) Use this this script: https://github.com/wardviaene/jenkins-course/blob/master/slack-notifications/Jenkinsfile
+
+Note: This script is out-of-date because the "Incoming WebHooks" is depricated.
 
 
