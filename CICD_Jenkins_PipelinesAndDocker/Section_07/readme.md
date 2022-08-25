@@ -57,9 +57,6 @@ Main Scenario:
     34) Jenkins send an email.
     35) End.
 
-
-
-
 Alternative Scenario
 
 
@@ -169,4 +166,132 @@ Jenkins Main Scenario 2:
 
 Note: This script is out-of-date because the "Incoming WebHooks" is depricated.
 
+
+## 28. GibHub and BitBucket integration
+
+- Up until now I've always added git repositories manually
+- If you have a lot of respositories, you don't want to add every single repository manually.
+- It is then more interesting to have Jenkins auto-detect new repositories
+- A developer could then create a new repository for a new (micro) service, add a Jenkinsfile,
+and the project will automatically be built in Jenkins.
+
+- The implementation differs from which version control provider you're using.
+    - When using GitHub: the GitHub Branch Source plugin will scan all the branches and repositories
+    in a GitHub organization and build them via Jenkins Pipelines.
+    - When using Bitbucket: the Bitbucket branch source plugin can scan team/project folders and 
+    automatically projects.
+
+## 29. Demo: GitHub integration with Gradle +  Java Project
+
+
+Main Scenario:
+
+    1) Open Jenkins Dashboard
+    2) Click on "Manage Jenkins" menu item.
+    3) Jenkins open a new screen.
+    4) Click on "Plugin Manager"
+    5) Click on "Available" tab.
+    6) Filter by filter field. Type: github
+    7) Select "Github Branch Source Plutin"
+    8) Click on "Download and Install button"
+    9) Jenkins restart.
+    10) Click on "New Item" menu item.
+    11) Type "my github repo" in "Enter an item name" field.
+    12) Select "GitHub Organization".
+    13) Click on "Ok" button.
+    14) Jenkins open a new form page.
+    15) Go Under Project "GitHub Organization".
+    16) Click on "Add Credentials" button.
+    17) Jenkins open a pop up form.
+    18) Main Scenario GitHub. 
+    19) Type the github username.
+    20) Type the github password. Use the token from step 18.
+    21) Click on "Add" Button.
+    22) Select Scan Credentials dropbox.
+    23) Type your github login in "Owner" field.
+    23) Click on "Save" Button.
+    24) Jenkins Scan the Organization from Github checking for Jenkinsfile. (https://github.com/marodrigues20/gs-gradle)
+    25) Open the jenkins terminal machine.
+    26) Create a directory typing: $ mkdir -p $HOME/.m2
+    27) Type: $ chown 1000:1000 $HOME/.m2
+    28) Go to Jenknins Web Page
+    29) Go to "my github repo" folder
+    30) Click on "gs-grandle" repository
+    31) Click on "Master" Branch.
+    32) Click on "Build Now" menu item.
+    33) Click on "Console Output"
+    34) Jenkins prints out "Build Successful" msg.
+    35) End.
+
+
+Main Scenario GitHub
+    1) Open GitHub web site.
+    2) Click on "Settings" item menu.
+    3) Click on "Personal Access Tokens" menu item.
+    4) GitHub open a new page.
+    5) Click on "Generate a new token" button.
+    6) Check "Repo" checkbox
+    7) Type: "jenkins" in "Token Description" field.
+    8) Click on "Generate Token"
+    9) Jenkins open a new page with the token generated.
+    10) Copy the token.
+    11) End.
+
+
+## 30. Demo: Bitbucket integration
+
+Pre-Requisite: 29. Demo: GitHub integration with Grandle + Java Project
+
+Main Scenario:
+
+    1) Open Jenkins Dashboard
+    2) Click on Plugin Manager
+    3) Click on Tab "Available"
+    4) Type in Filter field: bitbucket
+    5) Jenkins shows the filter result on screen.
+    6) Select "Bitbucket Branch Source Plugin"
+    7) Click on "Download now and Install after restart"
+    8) Jenkins shows "Installing Plugin/Upgrandes"
+    9) Select "Restart Jenkins when installing is complete and no jobs are running"
+    10) Jenkins returns from restart process.
+    11) Click on "New Item".
+    12) Jenkins shows a new screen
+    13) Select "Bitbucket Team/Project"
+    14) Type "myTeam" in "Enter an item name" field.
+    15) Click on "OK" Button.
+    16) Jenkins shows a new form page.
+    17) Type in "Owner" field your teamID from Bitbucket.
+    18) Click on add button.
+    19) Select dropbox scope: Global(Jenkins, nodes, items, all child items, etc)
+    20) Main Scenario Bitbucket. 
+    21) Type your bitbucket username.
+    22) Type your password copied from step 20.
+    23) Type in ID field: bitbucket-api
+    24) Click on "Save" Button.
+    25) Click on "Configure System" menu item.
+    26) Jenkins open "Configure System" page.
+    27) Jenkins URL is set correctly usign the same jenkins ip.
+    28) Click on "Save" button.
+    29) Jenkins run automatically the pipeline.
+    30) Jenkins shows "Success" msg.
+
+
+Post-Conditions: Jenkins scam automatically any new repo in bitbucket.
+
+
+Main Scenario Bitbucket:
+    1) Open Bitbucket website.
+    2) Go to settings.
+    3) Click on "App Password" menu.
+    4) Bitbucket open a new screen.
+    5) Click on "Create app password" button.
+    6) Bitbucket open a new screen.
+    7) Type a label.
+    8) Select all reads access on the page.
+    9) Click on "Create" button.
+    10) Copy the password
+    11) End.
+
+
+## 31. JFrog Artifactory integration
 
