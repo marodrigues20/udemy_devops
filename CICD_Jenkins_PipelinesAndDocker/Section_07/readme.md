@@ -295,3 +295,21 @@ Main Scenario Bitbucket:
 
 ## 31. JFrog Artifactory integration
 
+- In the previous demos I've always submitted the Docker image to the docker registry (Docker Hub)
+- This resulting image is in Jenkins called "The artifact"
+- It's the resulting binary from a build
+- It can be a docker image, or a .jar file, a .tgz/.zip file, really anything.
+- These artificats, the result of your build, you want to store somewhere.
+- JFrog Artificatory is a product that can store for you the artifacts resulting from a build.
+
+- You can either download Artificatory fro free and run it yourself, or you can use their hosted version.
+- In the demo I'll use the hosted version
+- It's bet practice to store all the artificts of the builds that are getting deployed.
+    - If you need to roll back, you have the artifact already available
+    - You are 100% sure about the binary if you're promoting the same version from dev to staging or from 
+    staging to production.
+
+- JFrog integration is done using a JFrog Plugin
+- The JFrog plugin allows you to add extra steps to your Jenkinsfile
+  - In this step, you can put a conditional, to only do this for develop/master branch, not for feature branches.
+
