@@ -313,3 +313,94 @@ Main Scenario Bitbucket:
 - The JFrog plugin allows you to add extra steps to your Jenkinsfile
   - In this step, you can put a conditional, to only do this for develop/master branch, not for feature branches.
 
+
+## 32. Demo: JFrog Artifactory integration
+
+Pre-Requesites: 1) JFrog Account
+                2) User Name and Password to be used in Jenkins 
+                3) Set permissions for that particular user. Create a group and give permission to Deploy/Cache for that particular group.
+                4) Set up a type of repository. (Gradle, Maven, Docker, npm and etc.) - This example is being used Grandle 
+
+Main Scenario Jenkins - JFrog Plugin:
+
+    1) Open the Jenkins Console.
+    2) Click on "Manage Jenkins" menu item.
+    3) Click on "PLugin Manager" menu item.
+    4) Click on  "Available" tab.
+    5) Type "artifactory Plugin" in Filter field.
+    6) Jenkins shows the result of filter.
+    7) Check "Artifactory Plugin" check box.
+    8) Click on "Download now and Install after restart" button.
+    9) Jenkins shows a new page.
+    10) Select "Restart Jenkins when installation is completed and no jobs are running"
+    11) Jenkins Restart and Install the Plugin.
+    12) Go to JFrog and set up and get the data required.
+    13) Go to Jenkins Console
+    14) Click on "Manage Plugins"
+    15) Jenkins open a new page.
+    16) Go to Artifactory Section.
+    17) Click "Add Artifactory Section"
+    18) Check "Use the Crendentials Plugin" check box.
+    19) Click on "Add" credentials button.
+    20) Add credentials with kind "Username and password"
+    21) Add user jfrog in username field.
+    22) Add password from the user. (Create API Key in JFrog and paste in this field)
+    23) Add the server id like: <repo>.jfrog.io
+    24) Add URL liek https://<repo>.jfrog.io
+    25) Select the credentials created in step 19 using dropbox.
+    26) Click on "Test Connection" button.
+    27) Jenkins Validate the Connection
+    28) Click on "Save" button
+    29) Jenkins display the Console page.
+    30) Click on "Manage Jenkins" menu item.
+    31) Click on "Global Tool Configuration".
+    32) Jenkins shows a new page.
+    33) Go to "Grandle" section.
+    34) Type "granle" in name field.
+    35) Select Grandle Version from dropbox field.
+    36) Click on "Save" botton.
+    37) Click on "Item Menu".
+    38) Jenkins display a new page.
+    39) Type "Grandle Publisher test" in "Enter an item name" field.
+    40) Click on "Pipeline" item.
+    41) Click on "OK" Button.
+    42) Jenkins open a new page.
+    43) Go to pipeline section.
+    44) Select "Pipeline script from SCM" in "Definition" field.
+    45) Select "Git" item in SCM field.
+    46) Paste in "Repository URL" https://github.com/wardviaene/jenkins-course
+    47) Paste in "Script Path" tree/master/jfrog-integration
+    48) Click on "Save" Botton.
+    29) Jenkins display a new page.
+    30) Click "Build Now" menu item.
+    31) Jenkins Run a new Job.
+    32) Jenkins shows "Success" msg.
+    33) End.
+
+Post-Conditions: Artifact uploaded in JFrog
+
+
+Main Scenario Jenkins - Docker:
+
+    1) Open jenkins Console
+    2) Click on "Menu Item"
+    3) Type: "Gradle publisher test with docker"
+    4) Select "Pipeline"
+    5) Click "OK" Button
+    6) Jenkins job shows a new page
+    7) Go to Pipeline section.
+    8) Select "Pipeline script from SCM"
+    9) Select "Git" in SCM field.
+    10) Paste the "Repository URL": https://github.com/marodrigues20/gs-gradle.git
+    11) Paste in "Script Path" field: Jenkinsfile.withfrog
+    12) Click "Save" button.
+    13) Jenkins display a new page.
+    14) Click on "Build Now" menu item.
+    15) Jenkins display a new Job Jenkins
+    16) Jenkins shows "Success" Message.
+
+Post-Conditions: Artifact uploaded in JFrog
+
+
+## 33. Custom API Integration
+
