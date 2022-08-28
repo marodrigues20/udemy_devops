@@ -404,3 +404,16 @@ Post-Conditions: Artifact uploaded in JFrog
 
 ## 33. Custom API Integration
 
+- Sometimes you want to integrate an API, but there is no plugin available
+- Even if there is a plugin available, it can lack the features you want
+    - You might want to get more information from an endpoint (e.g. the full JSON from the request)
+    - You want to do a POST or PUT request on the API
+- One solution is to write your own Jenkins Plugin
+    - But this requires a lot of effort
+    - And is not always feasible, as a developer, you might not have access to Jenkins Plugins.
+
+- Another solution is to use functionality in the Jenkins pipelines to do http requests
+- You only need one plugin: the http requests plugin
+- It's up to you (the developer/SysOps/DevOps) to write the code to do the requests and interpret them
+- This is where groovy becomes handy, because groovy allows you to do scripting within the Jenkinsfile
+
