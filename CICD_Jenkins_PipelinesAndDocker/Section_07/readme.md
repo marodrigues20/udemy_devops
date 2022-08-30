@@ -520,5 +520,45 @@ Main Scenario - Create API Key in Bitbucket
 
 ## 36. Demo: Sonarqube installation with docker-compose
 
-TODO
+Pre-Requisite:  Jenkins running using Docker image
+                Docker Compose installed
+
+
+    Main Scenario:
+        1) Open Digital Ocean website
+        2) Open the console
+        3) Type: $ docker ps
+        4) Type: $ docker stop <container>
+        5) Copy the content of docker compose file here: https://github.com/wardviaene/jenkins-course/blob/master/docker-compose/docker-compose.yml
+        6) Click on the "Raw" button.
+        7) Copy the git URL
+        8) Type in Digital Ocean console: $ wget https://raw.githubusercontent.com/wardviaene/jenkins-course/master/docker-compose/docker-compose.yml
+        9) Wget command download the docker-compose.yml file
+        10) Type: $ mkdir jenkins 
+        11) Type: $ mv docker-compose.yml jenkins
+        12) Type: $ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        13) Type: sudo chmod +x /usr/local/bin/docker-compose
+        14) Type: $ docker-compose --version
+        15) Go under jenkins folder created in step 10.
+        16) Type: $ docker-compose up -d
+        17) Type: $ docker ps //You see 3 containers running
+        18) Type: $ docker-compose logs -f sonarqube
+        19) Type in the browser: <Digital Ocean IP Machine/IP of Jenkins>:9000
+        20) The Browser shows SonarQube Main page.
+        21) Click on Login Button
+        22) Type in UserName: "admin"
+        23) Type in Password: "admin"
+        24) SonarQube redirect to Home Page.
+        25) End.
+
+
+Note: After Main Scenario Jenkins can push some SonarQube reports to SonarQube Server.
+
+## 37. Demo: SonarQube integration within Jenkins Pipelines
+
+
+
+
+
+
 
