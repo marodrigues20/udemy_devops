@@ -557,6 +557,84 @@ Note: After Main Scenario Jenkins can push some SonarQube reports to SonarQube S
 ## 37. Demo: SonarQube integration within Jenkins Pipelines
 
 
+    Main Scenario:
+    1) Open Jenkins DashBoard
+    2) Click on "Manage Jenkins" menu item
+    3) Jenkins open "Manage Jenkins" web page.
+    4) Click on "Plugin Manager" web page.
+    5) Jenkins open "Plugin Manager" web page.
+    6) Type "sonarqube" Filter field.
+    7) Jenkins shows the plugins availbles.
+    8) Check "SonarQube Scanner for Jenkins" checkbox.
+    9) Click on "Download now and install after restart" button.
+    10) Jenkins open a new page and start download and install the plugin.
+    11) Check "Restart Jenkins when installation is complete and no jobs are running"
+    12) Jenkins restart.
+    13) Main Scenario SonarQube.
+    14) Open Jenkins Dashboard.
+    15) Click on "Manage Jenkins" menu item.
+    16) Jenkins open "Manage Jenkins" web page.
+    17) Click on "Globa Tool Configuration" menu item.
+    18) Jenkins open a new page.
+    19) Go to SonarQube Scanner
+    20) Click on "SonarQube Scanner".
+    21) Jenkins shows a new form.
+    22) Type in name field "sonar".
+    23) Choose SonarQube version in Version dropbox.
+    24) Click on "Save" Button.
+    26) Jenkins shows a dashboard page.
+    27) Click on "Credentials" menu item.
+    28) Click in one of credentials narrow in domain collumn.
+    29) Jenkins shows a button "Add credentials"
+    30) Click on "Add credentials" Button.
+    31) Jenkins shows a new page.
+    32) Select "Secret file" in Kind field.
+    33) Paste the token copied in step 13 in Secret field.
+    34) Type "sonar" in ID and Description fields.
+    35) Click on "OK" Button.
+    36) Go to Jenkins DashBoard.
+    37) Click on "New Item" menu item.
+    38) Type "sonarqube" in "Enter an item name" field.
+    39) Select "pipeline" option.
+    40) Click on "OK" Button.
+    41) Jenkins shows a new page.
+    42) Go to "Pipeline" section.
+    43) Select "Definition" drop box.
+    44) Select in SCM field "Git".
+    45) Type "https://github.com/marodrigues20/jenkins-course.git" in "Repository URL" field.
+    46) Type "sonarqube/Jenkinsfile" in "Script Path" field.
+    47) Click on "Save" Button.
+    48) Jenkins open dashboard web page.
+    49) Open "Pipeline sonarqube".
+    50) Click on "Build Now".
+    51) Jenkins starts a new Job.
+    52) Click on new Job Id.
+    53) Click on Console Output.
+    54) Jenkins shows "Success".
+    55) Go to "Main Scenario SonarQube Result".
+    56) End.
+
+
+    Main Scenario SonarQube:
+    1) Open SonarQube
+    2) Login using Administrator
+    3) SonarQube open the home page.
+    4) Go to My Account
+    5) SonarQube shows My Account web page.
+    6) Click on "Security" tab.
+    7) Go to "Generate Tokens".
+    8) Type "Jenkins" in "Generate Tokens" field.
+    9) Click on "Generate" Button.
+    10) SonarQube generate a token.
+    11) Copy the Token generated.
+    12) End.
+
+    Main Scenario SonarQube Result:
+    1) Open SonarQube Home page.
+    2) SonarQube shows in "PROJECTS" gs-grandle project.
+    3) Click on "gs-grandle" project
+    4) SonarQube open a new page with metrics of the project.
+    5) End.
 
 
 
