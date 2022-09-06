@@ -111,3 +111,88 @@ Nothing to Write here!
 
 ## 44. ssh-agent
 
+- When you work with Jenkins Slaves, those slaves also need access to repositories.
+    - A mistake I often see is that people customize the software on their slave.
+    - Private keys and credentials often end up on the slaves.
+    - This makes it more difficult to scale out slaves: adding another slaves suddenly means manually
+    copying over credentials and private keys.
+
+- For ssh keys, the solution is to use an ssh-agent
+- The ssh-agent will run on the master, and will contain the private keys that are necessary to authenticate
+to the external system you need access to
+    - Predominantly, this is a GitHub/Bitbucket private key to get access to the repositories
+- When you need access to a system or a git repository within the Jenkinsfile, you can wrap the ssh-agent around
+your code, to be able to authenticate to the systems
+    - ssh-agent uses the same keys stored within your credentials
+
+## 45. demo: ssh agent
+
+TODO
+
+## 46. Security best practices
+
+### Security
+
+- Best practices for Jenkins:
+    - Try to keep your Jenkins shielded from the internet: using firewall rules and behind a VPN
+        - You'll need to whitelist the bitbucket/github IP addresses for pushing requests
+        - In the past there were security vulnerabilities discovered that can be exploited without being
+        logged in, so it's better to keep Jenkins shielded away from internet.
+
+    - Keep your Jenkins up-to-date
+        - Always upgrade to the latest version
+            - Use the lts (long term support) edition if you want to be on a stable version.
+            - If you're using docker, use the lts or latest tag, and do a docker (or docker-compose)
+            pull, and restart the container
+            - Also read the Changelog
+        - Always keep the plugins up to date
+
+    - Configure authentication / authorization
+        - If you don't want to give administrator access to your users, make sure that they can't execute scripts
+        that give them elevated permissions.
+            - Keep in mind that administrator can decrypt credentials
+        - Use Onelogin (SAML) / LDAP / centralized directory for users
+        - Don't use weak passwords / logins
+
+## 47. Authentication and authorization
+
+- Authentication:
+
+    - "The process or action of verifying the identity of user or process."
+    - Basically, verifying the credentials of the user: the username (or email) and password
+
+- Authorization:
+
+    - "Authorization is the function of specifying access rights to resources
+      related to information security and computer security in general and to access control in particular.
+    - Once a user is authenticate, what does he have access to?
+
+- I'll cover authentication in the next section, by using Onelogin as our "authentication / identity provider"
+
+- For authorization, you have a few options:
+    - Anyone can do anything (not recommended)
+    - Anyone who is logged in can do anything
+    - Matrix based authorization (just a big table to give users access)
+    - Role Strategy plugin (for more granular control, like projects and slave access)
+
+- What do to when you lock yourself out?
+$ docker stop jenkins
+$ # edit /var/jenkins_home/config.xml
+$ docker start jenkins
+
+
+Option 1:
+Make sure you have:
+<useSecurity>false</useSecurity>
+
+And remove all
+<authorizationStrategy> references
+
+Options 2:
+<authorizationStrategy
+class="hudson.security.ProjectMatrixAuthorizationStrategy">
+<permission>hudson.model.Hudson.Administer:YOUR-USER</permission>
+</authorizationStrategy>
+
+
+
