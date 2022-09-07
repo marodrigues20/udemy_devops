@@ -176,23 +176,54 @@ TODO
     - Role Strategy plugin (for more granular control, like projects and slave access)
 
 - What do to when you lock yourself out?
-$ docker stop jenkins
-$ # edit /var/jenkins_home/config.xml
-$ docker start jenkins
+
+```
+    $ docker stop jenkins
+    $ # edit /var/jenkins_home/config.xml
+    $ docker start jenkins
 
 
-Option 1:
-Make sure you have:
-<useSecurity>false</useSecurity>
+    Option 1:
+    Make sure you have:
+    <useSecurity>false</useSecurity>
 
-And remove all
-<authorizationStrategy> references
+    And remove all
+    <authorizationStrategy> references
 
-Options 2:
-<authorizationStrategy
-class="hudson.security.ProjectMatrixAuthorizationStrategy">
-<permission>hudson.model.Hudson.Administer:YOUR-USER</permission>
-</authorizationStrategy>
+    Options 2:
+    <authorizationStrategy
+    class="hudson.security.ProjectMatrixAuthorizationStrategy">
+    <permission>hudson.model.Hudson.Administer:YOUR-USER</permission>
+    </authorizationStrategy>
+    ```
 
 
+## 48. Demo: authorizations
+
+TODO
+
+## 49. Authentication Providers for Jenkins
+
+- Rather than managing users locally, it's best to manage users elsewhere
+- All enterprise companies use a central user database, often a directory service like Active Directory or LDAP
+    - If you already have this setup, then it's quite easy for you
+    - At the "Configure Global Security" page, select LDAP and input the settings provided to you by the AD group
+- If you're not in an enterprise environment, you'll either have a setup LDAP yourself, or go for hosted solution
+
+### Security
+
+- One of the best hosted solutions is onelogin.com
+- It's used by a lot of companies to manage their users directory
+- Onelogin can also be linked to Jenkins, to let onelogin handle the authentication process
+    - You link through SAML
+        - Security Assertion Markup Language (SAML, pronounced sam-el) is an XML-based, open-standard data format
+        for exchanging authentication and authorization data between parties (wikipedia)
+
+- Once SAML has been setup, Onelogin will handle the authentication part
+- When you want to add more users, you'll have to add more users to Onelogin
+    - Onelogin can provision users from sources, like Google
+    - Onelogin also provides multi-factor authentication
+- Unfortunately Onelogin is not cheap (and suffered from some data breaches in the past), but it's still a very
+  straighfoward and secure way to manage your users
+  
 
