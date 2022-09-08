@@ -177,7 +177,7 @@ TODO
 
 - What do to when you lock yourself out?
 
-```
+    ```
     $ docker stop jenkins
     $ # edit /var/jenkins_home/config.xml
     $ docker start jenkins
