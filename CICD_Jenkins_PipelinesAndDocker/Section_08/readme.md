@@ -81,7 +81,131 @@ or more worker nodes (Jenkins Slaves)
 
 ## 40. Demo - Jenkins slave using SSH
 
-TODO 
+    Main Scenario - Jenkins:
+    1) Open Jenkins Home web page.
+    2) Click on "Manage Jenkins" on menu item.
+    3) Jenkins Open a new page.
+    4) Click on "Manage Nodes" on menu item.
+    5) Jenkins Shows a list of Nodes inclusive the Master Node.
+    6) Click on "New Node" on menu item.
+    7) Jenkins open a form page.
+    8) Type "builder" inside "Node name" field.
+    9) Select "Parameter Agent" radio button.
+    10) Click on "OK" Button.
+    11) Jenkins open a new form.
+    12) Type "2" in "# of executors" field.
+    13) Type: "/var/jenkins_home" in "Remote Root Directory" field.
+    14) Type: "this is new Jenkins Node" in "Description" field.
+    15) Type: "builder" in "Labels" field.
+    16) Select "Only build jobs with label expression matching this node" option in "Usage" dropbox.
+    17) Select "Launch slave agents via SSH" in "Lauch method" dropbox.
+    18) Jenkins open a new set of fields.
+    19) Go to Main Scenario - DigitalOcean
+    20) Copy the IP address in "Host" field.
+    21) Click on "Add" button.
+    22) Jenkins open a pop up "Jenkins Credentials Provider: Jenkins"
+    23) Select "SSH Username with private key" in "Kind" dropbox.
+    24) Fill in "Username" field with "jenkins" value.
+    25) Select "Enter directly" option button under "Private Key" section.
+    26) Jenkins open a new textfield.
+    27) Copy the private key generated in "Main Scenario - Droplet"
+    28) Type: "mykey-tmp" in "ID" field.
+    29) Type: "mykey" in "Description" field.
+    30) Click on "Add" Button.
+    31) Jenkins close the pop up windows.
+    32) Select "jenkins (mykey)" value in "Credentials" dropbox.
+    33) Click on "Save" button.
+    34) Jenkins shows 2 machines ("master" and "builder").
+    35) Select "builder" link on the list of machines.
+    36) Click on "configure" on menu item.
+    37) Jenkins open a new page.
+    38) Click on "Advanced" button.
+    39) Type "2222" in "Port" field.
+    40) Click on "Save" button.
+    41) Jenkins open "Agent Builder" page.
+    42) Click on "Relaunch agent" button.
+    43) Jenkins open a console out put.
+    44) Jenkins shows a error message: "No Known Hosts file was found /var/jenkins_home/.ssh/known_hosts."
+    45) Copy the IP address shown in the console on step 43 like this IP:2222.
+    46) Go to "Main Scenario - Validate Host".
+    47) Click on "Nodes" menu item.
+    48) Jenkins open a page with list of nodes.
+    49) Click on "builder" link.
+    50) Jenkins open a new web page "Agent Builder"
+    51) Click on " Launch Agent".
+    52) Jenkins open a console output.
+    53) Jenkins launch the agent.
+    54) Go to Jenkins Home.
+    55) Jenkins shows under "Build Executors Status" section one more agent called "builder" with 2 "idle" slots.
+    56) Click on "slave test" pipeline.
+    57) Jenkins run a jenkins job pipeline.
+    58) Open Jenkins job Home.
+    58) Jenkins shows the job started on step 57 running over "builder" agent on the first slot.
+    59) 
+
+
+    Main Scenario - DigitalOcean:
+    1) Open digitalocean.com home page.
+    2) Click on "Create Droplet" button.
+    3) Select "Ubuntu 16.04.2 x64" machine.
+    4) Under "Select Additionals options" check "User Data" checkbox field.
+    5) DigitalOcean open a script section textfield.
+    6) Go to Main Scenario - GitHub.
+    7) Paste the script inside the field showed on step 5.
+    8) Go to Main Scenario - Droplet.
+    9) Go to under section "Add your SSH keys".
+    10) Click on "New SSH Key".
+    11) DigitalOcean open a new pop up.
+    12) Copy the public key generated on "Main Scenario - Droplet"
+    13) Type "mykey-tmp" in "Name" field.
+    14) Click on "Add SSH Key".
+    15) Under "Finalize and create" section select "1 Droplet".
+    16) Click on "Create" button.
+    17) DigitalOcean shows a new web page with 2 droplets.
+    18) Copy the IP address from the new droplet created.
+    19) Go to "Main Scenario - Jenkins:" in step 20.
+
+
+    Main Scenario - GitHub
+    1) Open https://github.com/marodrigues20/jenkins-course
+    2) Click on "jenkins-slave" 
+    3) Click on "digitalocean_userdata.sh"
+    4) Click on "Raw" button.
+    5) Copy the script.
+    6) Go to step 6 on "Main Scenario - DigitalOcean".
+
+
+
+    Main Scenario - Droplet
+
+    Pre-Requesite: (Master) Jenkins is already installed in this droplet.
+
+    1) Open the Console.
+    2) Type in home directory: $ ssh-keygen -f mykey
+    3) Press enter.
+    4) ssh-keygen shows you the message: "Enter passphrase (empty for passphase):"
+    5) Press enter.
+    6) ssh-keygen shows you the message: "Enter same passphase again:"
+    7) Press enter.
+    8) ssh-keygen shows the messages:
+        8.1) "Your identification has been saved in mykey"
+        8.2) "Your public key has been saved in mykey.pub."
+        8.3) "The key fingerprint is: ... "
+    9) Type: $ cat mykey.pub 
+    10) The System shows the public key.
+    11) Copy the public key in step 10.
+    12) Type: $ cat mykey
+    13) The System shows the private key.
+    14) Go to "Main Scenario - DigitalOcean" in step 9.
+
+
+    Main Scenario - Validate Host
+    1) Open a new console related to the droplet where is the master jenkins.
+    2) Type "ssh-keyscan -p 2222 <IP_ADDRESS_FROM_"Main Scenario - Jenkins"_step_45>
+    3) The ssh-keyscan shows "SSH finger print that you want to receive".
+    4) Type: $ ssh-keyscan -p 2222 <IP_ADDRESS_FROM_"Main Scenario - Jenkins"_step_45> >> /var/jenkins_home/.ssh/known_hosts
+    5) End
+
 
 ## 41. Demo: Jenkins slave using jnlp
 
