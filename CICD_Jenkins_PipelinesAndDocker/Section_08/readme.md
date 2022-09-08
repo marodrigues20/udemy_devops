@@ -141,7 +141,7 @@ or more worker nodes (Jenkins Slaves)
     57) Jenkins run a jenkins job pipeline.
     58) Open Jenkins job Home.
     58) Jenkins shows the job started on step 57 running over "builder" agent on the first slot.
-    59) 
+    59) End.
 
 
     Main Scenario - DigitalOcean:
