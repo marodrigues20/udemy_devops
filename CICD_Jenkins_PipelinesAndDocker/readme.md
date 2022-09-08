@@ -1,6 +1,6 @@
 # Udemy Course 
 
-- https://wipro.udemy.com/course/learn-devops-ci-cd-with-jenkins-using-pipelines-and-docker/learn/lecture/7078308#overview
+- https://www.udemy.com/course/learn-devops-ci-cd-with-jenkins-using-pipelines-and-docker/learn/lecture/7078308#overview
 
 Learn DevOps: CI/CD with Jenkins using Pipelines and Docker
 
