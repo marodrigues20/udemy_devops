@@ -209,7 +209,47 @@ or more worker nodes (Jenkins Slaves)
 
 ## 41. Demo: Jenkins slave using jnlp
 
-TODO
+    Main Scenario - Jenkins:
+    1) Open Jenkins Home web page.
+    2) Click on "Manage Jenkins" menu item.
+    3) Jenkins open a new web page.
+    4) Click on "Manage Nodes" item.
+    5) Jenkins opens Nodes webpage.
+    6) Click on "New-Node" menu item link.
+    7) Jenkins open a new web page form.
+    8) Type "builder2" in "Node Name" field.
+    9) Select "Permanent Agent" radio button.
+    10) Jenkins shows a new form.
+    11) Fill in "Name" field with "builde2" value.
+    12) Fill in "# of executors" field with "2" value.
+    13) Fill in "Remote Root Directory" with "/var/jenkins" value.
+    14) Select "Use this node as much as possible" in "Usage" dropbox.
+    15) Select "Launch agent via Java Web Start" in "Launch method" dropbox.
+    16) Click on "Save" Button.
+    17) Jenkins shows node list page.
+    18) Click on "builder2" node link.
+    19) Jenkins shows a "Agent buider2" web page.
+    20) Copy the link in "slave.jar" link.
+    21) Go to "Main Scenario - DigitalOcean".
+    22) Refresh the web page.
+    23) Jenkins shows the same web page but without button.
+    24) Go to Jenkins Home.
+    25) Jenkins shows "builder2" item under "Build Executor Status"
+    26) End.
+
+
+    Main Scenario - DigitalOcean:
+    1) Create a new droplet.
+    2) Open the console.
+    3) Type: $ apt-get install openjdk-8-jdk
+    4) The system install the openjdk-8
+    5) Type: $ wget <Address_copied_from_Main Scenario - Jenkins_in_step_20>
+    6) Go to "Main Scenario - Jenkins" in step 19 and copy the command line "Run from agent command line".
+    7) Paste the command in the console copied in step 6.
+    8) The System shows the message: "connected"
+    9) End.
+
+
 
 ## 42. Blue Ocean
 
