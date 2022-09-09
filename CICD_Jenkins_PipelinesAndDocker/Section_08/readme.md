@@ -291,7 +291,75 @@ your code, to be able to authenticate to the systems
 
 ## 45. demo: ssh agent
 
-TODO
+    Main Scenario - Jenkins
+    1) Open Jenkins Home.
+    2) Click on "Credentials" menu item.
+    3) Jenkins open "Credentials" web page.
+    4) Click on "global" link and select "Add Credentials".
+    5) Jenkins open a new page.
+    6) Select "SSH Username with private key" dropbox.
+    7) Type "git" in Username.
+    8) Select "Enter directly".
+    9) Jenkins shows new textfield.
+    10) Copy a private key generated earlier in another demos. ( Put the public key in Github in "SSH and GPG keys)
+    11) Type "github-key" in "ID" field.
+    12) Type "github-key" in "Description".
+    13) Click on "OK" Button.
+    14) Jenkins open a new page.
+    15) Open "Pipeline slack Notification". (Earlier pipeline created previous in this course)
+    16) Jenkins open a new page.
+    17) Click on "Configure" menu item.
+    18) Jenkins open "Configure" web page.
+    19) Go under Pipeline section.
+    20) Select "git" in "Credentials" dropbox.
+    21) Go to "Main Scenario - SSH Agent".
+    22) Open Jenkins Home.
+    23) Click on "New Item" menu item.
+    24) Type "ssh-agent test" in "Enter an item name" field.
+    25) Select "Pipeline" item.
+    26) Click on "OK" Button.
+    27) Jenkins open a new page.
+    28) Under "Pipeline" section.
+    29) Select "Pipeline script from SCM" in Definition field.
+    30) Select "Git" item in "SCM" dropbox.
+    31) Type "ssh-agent/Jenkinsfile" in ScriptPath field.
+    32) Click on "Save" Button.
+    33) Jenkins open "ssh-agent test" Pipeline web page.
+    34) Click on "Build Now" menu item.
+    35) Jenkins start running a new job.
+    36) Jenkins shows the msg "ssh-agent"
+    37) Jenkins shows the msg "ssh-add ..."
+    38) 36) Jenkins shows the msg "Host key verification failed."
+    39) Go to "Main Scenario - Droplet"
+    40) Go to "ssh-agent test" Pipeline web page.
+    41) Click on "Build Now" menu item.
+    42) Jenkins start a new job.
+    43) Open the Console output.
+    44) Jenkins shows the msg: "Success".
+    45) End.
+
+
+    Main Scenario - SSH Agent:
+    1) Go to Jenkins Home.
+    2) Click on "Manage Jenkins" menu item.
+    3) Jenkins open a new web page.
+    4) Click on "Available" tab.
+    5) Type "ssh-agent" in Filter field.
+    6) Jenkins shows the plugin.
+    7) Check "ssh-agent" checkbox.
+    8) Click on "Download now and install after restart".
+    9) Jenkins shows a new page.
+    10) Check "Restart Jenkins when instalation is complete and no jobs are running".
+    11) Jenkins install the plugin and restart.
+    12) End.
+
+
+    Main Scenario - Droplet
+    1) Open master droplet console. (machine where you are runnin Jenkins UI)
+    2) Type $ ssh-keyscan github.com
+    3) The System print out the inforamtion that you need.
+    4) Type $ ssh-keyscan github.com >> /var/jenkins_home/.ssh/known_hosts
+    5) End.
 
 ## 46. Security best practices
 
