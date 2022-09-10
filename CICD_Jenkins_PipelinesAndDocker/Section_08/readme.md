@@ -473,5 +473,60 @@ your code, to be able to authenticate to the systems
 
 ## 50. Demo: Onelogin integration with Jenkins using SAML
 
-TODO
+    Pre-Requisites: Account created in https://www.onelogin.com
 
+    Main Scenario - onelogin:
+    1) Open https://www.onelogin.com home page.
+    2) Click "App" Menu.
+    3) The System open "Company Apps" web page.
+    4) Click on "ADD APP" Button.
+    5) Type in "Find Applications" field "saml" value.
+    6) The System show a list of applications.
+    7) Select "SAML Test Connector (IdP)".
+    8) The System open a new page "SAML Test Connector (IdP)".
+    9) Type "Jenkins" in "Display Name" field.
+    10) Click on "Save" Button.
+    11) The System open a new web page.
+    12) Click on "Configuration" tab.
+    13) Insert "http://domain name and port/securityRealm/finishLogin" in "Audience" field.
+    14) Insert "http://domain name and port/securityRealm/finishLogin" in "Recipient" field.
+    15) Insert "^http:\/82\.196\.14\.54:PORT\/   (IP is just illustrative)
+    16) Insert "http://domain name and port/securityRealm/finishLogin" in "ACS (Consumer) URL" field.
+    17) Click on "Save" Button.
+    18) Click on "MORE ACTIONS" Button.
+    19) Select "SAML Metadata"
+    20) The System download a SAML File.
+    21) Open the file in step 20 using an editor.
+    22) End.
+
+
+    Main Scenario - Jenkins:
+    1) Open Jenkins Home
+    2) Click on "Manage Jenkins" menu item.
+    3) Jenkins open "Manage Jenkins" web page.
+    4) Click "Plugin Manager" menu item.
+    5) Jenkins open "Plugin Manager".
+    6) Click on "Available" tab.
+    7) Filter by "saml".
+    8) Jenkins shows a list of plugin.
+    9) Select "SAML Plugin".
+    10) Click on "Download now and install after restart" button.
+    11) Jenknis open a new page.
+    12) Check "Restart Jenkins when installation is complete and no jobs are running"
+    13) Jenkins install the plugin.
+    14) Open the Jenkins home page.
+    15) Select "Manage Jenkins" menu item.
+    16) Jenkins open a new page.
+    17) Select "Configure Global Security" link.
+    18) Select "SAML 2.0" radio button.
+    19) Jenkins shows new fields.
+    20) Paste the SAML File content in "IdP Metadata" field.
+    21) Click on "Save" button.
+    22) Copy the Jenkins ip address showed in URL Browser.
+    23) Open incognito browser.
+    24) Paste the Jenkins URL copied from step 22.
+    25) Browser redirect to "onelogin" web site authentication page.
+    26) Fill in "username" and "password".
+    27) Click on "LOG IN" button.
+    28) The System shows Jenkins Console home page.
+    29) End.
