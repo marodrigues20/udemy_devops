@@ -432,7 +432,19 @@ your code, to be able to authenticate to the systems
 
 ## 48. Demo: authorizations
 
-TODO
+    Main Scenario Jenkins
+    1) Open Jenkins Home
+    2) Click on "Manage Jenkins" menu item.
+    3) Jenkins open "Manage Jenkins" web page.
+    4) Click on "Configure Global Security" item.
+    5) Jenkins open "Configure Global Security" web page.
+    6) Select "Matrix-based security" option.
+    7) Give you the admin access.
+    8) Click on "People" menu item.
+    9) Jenkins open "People" web page.
+    10) Check your user Id.
+    11) Click on "Save" botton.
+    12) End.
 
 ## 49. Authentication Providers for Jenkins
 
