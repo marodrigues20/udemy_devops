@@ -1,7 +1,7 @@
 Docker and Kubernets: The Complete Guide
 
-- [Section  1: Dive Into Docker!](https://github.com/marodrigues20/udemy_devops/blob/main/Docker_Kubernets_CompleteGuide/Sections/section_1/01/diagrams.xml)
-- [Section  2: Manipulating Containers with the Docker Client](https://github.com/marodrigues20/udemy_devops/tree/main/Docker_Kubernets_CompleteGuide/Sections/section_2)
+- [Section  1: Dive Into Docker!](https://github.com/marodrigues20/udemy_devops/tree/main/Docker_Kubernets_CompleteGuide/Sections/section_1/01)
+- [Section  2: Manipulating Containers with the Docker Client](https://github.com/marodrigues20/udemy_devops/blob/main/Docker_Kubernets_CompleteGuide/Sections/section_2/Cli%20Commands)
 
 
 
